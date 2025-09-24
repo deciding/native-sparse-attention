@@ -59,21 +59,21 @@ def benchmark(T, provider):
             lambda: parallel_nsa(q, k, v, g_slc, g_swa, block_indices, block_counts, block_size, window_size),
             quantiles=quantiles
         )
-    elif provider == 'nsa_bwd':
-        results = triton.testing.do_bench(
-            lambda: parallel_nsa(q, k, v, g_slc, g_swa, block_indices, block_counts, block_size, window_size).backward(do),
-            quantiles=quantiles
-        )
-    elif provider == 'flash':
-        results = triton.testing.do_bench(
-            lambda: flash_attn_func(q, k, v, causal=True),
-            quantiles=quantiles
-        )
-    elif provider == 'flash_bwd':
-        results = triton.testing.do_bench(
-            lambda: flash_attn_func(q, k, v, causal=True).backward(do),
-            quantiles=quantiles
-        )
+    #elif provider == 'nsa_bwd':
+    #    results = triton.testing.do_bench(
+    #        lambda: parallel_nsa(q, k, v, g_slc, g_swa, block_indices, block_counts, block_size, window_size).backward(do),
+    #        quantiles=quantiles
+    #    )
+    #elif provider == 'flash':
+    #    results = triton.testing.do_bench(
+    #        lambda: flash_attn_func(q, k, v, causal=True),
+    #        quantiles=quantiles
+    #    )
+    #elif provider == 'flash_bwd':
+    #    results = triton.testing.do_bench(
+    #        lambda: flash_attn_func(q, k, v, causal=True).backward(do),
+    #        quantiles=quantiles
+    #    )
     return results
 
 
