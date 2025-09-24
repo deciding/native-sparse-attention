@@ -2,7 +2,7 @@
 
 import torch
 import triton
-from flash_attn import flash_attn_func
+#from flash_attn import flash_attn_func
 
 from native_sparse_attention.ops.parallel import parallel_nsa
 
